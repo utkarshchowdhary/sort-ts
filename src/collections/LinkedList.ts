@@ -23,7 +23,7 @@ export class LinkedList extends Sorter {
   add(data: number): void {
     const newNode = new Node(data);
 
-    if (!this.head) {
+    if (this.head == null) {
       this.head = newNode;
       return;
     }
@@ -44,7 +44,7 @@ export class LinkedList extends Sorter {
       counter++;
     }
 
-    if (!curr) {
+    if (curr == null) {
       throw new Error("Index out of bounds");
     }
 
@@ -56,43 +56,43 @@ export class LinkedList extends Sorter {
   }
 
   swap(leftIndex: number, rightIndex: number): void {
-    let counter = 0;
+    let lCounter = 0;
     let currLeftNode = this.head;
     let prevLeftNode: Node | null = null;
 
-    while (currLeftNode != null && counter != leftIndex) {
+    while (currLeftNode != null && lCounter != leftIndex) {
       prevLeftNode = currLeftNode;
       currLeftNode = currLeftNode.next;
-      counter++;
+      lCounter++;
     }
 
-    counter = 0;
+    let rCounter = 0;
     let currRightNode = this.head;
     let prevRightNode: Node | null = null;
 
-    while (currRightNode != null && counter != rightIndex) {
+    while (currRightNode != null && rCounter != rightIndex) {
       prevRightNode = currRightNode;
       currRightNode = currRightNode.next;
-      counter++;
+      rCounter++;
     }
 
     if (currLeftNode == null || currRightNode == null) {
       throw new Error("Index out of bounds");
     }
 
-    if (prevLeftNode) {
+    if (prevLeftNode != null) {
       prevLeftNode.next = currRightNode;
     } else {
       this.head = currRightNode;
     }
 
-    if (prevRightNode) {
+    if (prevRightNode != null) {
       prevRightNode.next = currLeftNode;
     } else {
       this.head = currLeftNode;
     }
 
-    let leftHandNext = currLeftNode.next;
+    const leftHandNext = currLeftNode.next;
     currLeftNode.next = currRightNode.next;
     currRightNode.next = leftHandNext;
   }

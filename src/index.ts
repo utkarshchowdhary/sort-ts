@@ -8,7 +8,7 @@ console.log(numbersCollection.data); // [-5, 0, 3, 10]
 
 const charactersCollection = new CharactersCollection("crOCoDIliaN");
 charactersCollection.sort(); // sorting characters of a string regardless of casing
-console.log(charactersCollection.data); // acCDiilNOor
+console.log(charactersCollection.data); // acCDIilNOor
 
 const linkedList = new LinkedList();
 linkedList.add(10);
